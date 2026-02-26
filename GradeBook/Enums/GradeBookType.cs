@@ -1,10 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
-namespace GradeBook.Enums 
-{
-    public enum GradeBookType
+using GradeBook.Enums;
+using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace GradeBook.Enums
+{ 
+    public enum GradeBookType 
     {
         Standard,
         Ranked,
