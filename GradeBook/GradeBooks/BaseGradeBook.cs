@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using GradeBook.Enums;
-
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
@@ -84,9 +83,9 @@ namespace GradeBook.GradeBooks
                 return null;
             }
 
-            using (var file = new FileStream(name + ".gdbk", FileMode.Open, FileAccess.Read))
+            var file = new FileStream(name + ".gdbk", FileMode.Open, FileAccess.Read);
             {
-                using (var reader = new StreamReader(file))
+                var reader = new StreamReader(file);
                 {
                     var json = reader.ReadToEnd();
                     return ConvertToGradeBook(json);
@@ -96,9 +95,9 @@ namespace GradeBook.GradeBooks
 
         public void Save()
         {
-            using (var file = new FileStream(Name + ".gdbk", FileMode.Create, FileAccess.Write))
+            var file = new FileStream(Name + ".gdbk", FileMode.Create, FileAccess.Write);
             {
-                using (var writer = new StreamWriter(file))
+                var writer = new StreamWriter(file);
                 {
                     var json = JsonConvert.SerializeObject(this);
                     writer.Write(json);
